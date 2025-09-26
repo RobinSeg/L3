@@ -1,0 +1,308 @@
+@font-face {
+    font-family: 'BallparkWeiner';
+    src: url('../font/ballpark.eot');
+    src: url('../font/ballpark.eot?#iefix') format('embedded-opentype'),
+        url('../font/ballpark.woff') format('woff'),
+        url('../font/ballpark.ttf') format('truetype'),
+        url('../font/ballpark.svg#BallparkWeiner') format('svg');
+}
+@font-face {
+    font-family: 'Dayrom';
+    src: url('../font/dayrom-webfont.woff2') format('woff2'),
+        url('../font/dayrom-webfont.woff') format('woff');
+}
+
+html
+{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+*
+{
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+h1, nav a
+{
+  font-family: 'Dayrom', serif;
+  font-weight: normal;
+}
+
+/*----------BODY----------*/
+
+body
+{
+  background-image: url("../images/fond_jaune.png");
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+
+/*----------HEADER----------*/
+
+header
+{
+  padding: 10px;
+  flex-direction: column;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+
+  border-bottom: none;
+  background-image: url("../images/separateur.png");
+  background-repeat: repeat-x;
+  background-position: bottom;
+}
+
+.top-header
+{
+  display: flex;
+  align-items: center; /* aligne verticalement logo et texte */
+  gap: 15px;
+}
+
+.logo
+{
+  width: 80px; /* ajuste selon ton image */
+  height: auto;
+}
+
+.top-header h1
+{
+  margin: 0;
+}
+
+.bottom-header
+{
+  display: flex;
+  justify-content: space-between; /* h2 à gauche, menu à droite */
+  align-items: center;
+}
+
+.titres2
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.titres2 h2
+{
+  margin: 0;
+}
+
+.header-menu
+{
+  align-self: flex-end; /* pousse le menu à droite */
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+.header-menu ul
+{
+  list-style: none;
+  display: flex;
+  gap: 50px;
+}
+
+.header-menu a {
+  display: block;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  transition: color 0.2s, transform 0.5s, transform-origin 1s;
+}
+
+.header-menu a:hover {
+  color: red;
+  transform: scale(1.3);
+  transform-origin: center;
+  transition: transform 0.2s, color 0.2s;
+}
+
+/*----------Entre-Deux----------*/
+
+.wrapper
+{
+  display: block;
+  max-width: 1200px;
+  min-width: 600px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.article-tech 
+{
+  display: block;
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  transition: transform 0.5s, transform-origin 0.5s, box-shadow 0.5s;
+}
+
+.article-tech:hover
+{
+  transform: scale(101%);
+  transform-origin: center;
+  transition: transform 0.5s, transform-origin 0.5s, box-shadow 0.5s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.article-tech img 
+{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.overlay-text
+{
+  position: absolute;
+  
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 10px;
+
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 0 0 15px 15px;
+
+  color: white;
+  font-size: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overlay-text a
+{
+  text-decoration: none;
+  color: #fffd6e;
+  font-weight: bold;
+  transition: color 0.2s, transform 0.5s, transform-origin 0.5s;
+}
+
+.overlay-text a:hover
+{
+  text-decoration: none;
+  color: #fa7537;
+  font-weight: bold;
+  transition: color 0.2s, transform 0.2s;
+  transform-origin: right;
+  transform: scale(1.2);
+}
+
+/*----------MAIN----------*/
+
+main
+{
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+
+article
+{
+  padding: 20px;
+  width: 70%;
+  transition: transform 0.5s, transform-origin 0.5s;
+}
+
+article:hover
+{
+  transform: scale(101%);
+  transform-origin: center;
+  transition: transform 0.2s, transform-origin 0.5s;
+}
+
+aside
+{
+    background-color: rgb(94, 94, 60);
+    color: rgb(233, 233, 233);
+    padding: 20px;
+    width: 30%;
+    border-radius: 15px;
+    transition: transform 0.5s, transform-origin 0.5s, box-shadow 0.5s;
+}
+
+aside:hover
+{
+  transform: scale(102%);
+  transform-origin: center;
+  transition: transform 0.5s, transform-origin 0.5s, box-shadow 0.5s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+
+article h1
+{
+  font-size: 25px;
+}
+
+.article-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.article-header img.ico-epingle {
+  width: 48px;
+  height: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.article-header h1 {
+  margin: 0;
+  font-weight: normal;
+  line-height: 1.15;
+}
+
+
+
+/*----------FOOTER----------*/
+
+footer
+{
+  font-style: oblique;
+
+  margin-top: 10px;
+  border-bottom: none;
+  background-image: url("../images/separateur.png");
+  background-repeat: repeat-x;
+  background-position: top;
+}
+
+.footer-sections
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweet
+{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.amis
+{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.liste-amis
+{
+  color: rgb(138, 31, 31);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+

@@ -1,0 +1,100 @@
+/*----------NAV----------*/
+
+nav
+{
+    /*border: 2px solid black;*/
+    /*padding: 10px;
+    padding-right: 10%;
+    padding-left: 5%;*/
+    /*float: left;*/
+
+    color : rgb(121, 114, 77);
+    background: rgb(233, 235, 155);
+    display: inline-block;
+    vertical-align: middle;
+    width: 150px;
+}
+
+nav a:visited
+{   
+    color : rgb(214, 133, 58);
+}
+
+nav a:hover
+{
+    color : rgb(255, 0, 0);
+    /*zoom: 1.2;*/
+    display: block;
+    transform: scale(1.2);
+    transform-origin: left;
+    transition: transform 0.2s, color 0.2s;
+}
+
+/*----------SECTION----------*/
+
+section
+{
+    /*margin-top: 150px;*/
+    /*border: 2px solid blue;*/
+    text-align: left;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*clear : both;*/
+
+    
+    background: rgb(78, 95, 78);
+    display: inline-block;
+    vertical-align: middle;
+    width: 450px;
+    height: 200px;
+}
+
+section h1
+{
+    text-transform: uppercase;
+    color : rgb(233, 231, 136);
+}
+
+section p
+{
+    color : rgb(130, 209, 130);
+    font-size: 20px;
+}
+
+/*----------HEADER----------*/
+
+header
+{
+    background-color: orange;
+}
+
+header h1, header h2
+{
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*----------FOOTER----------*/
+
+footer
+{
+    font-style: oblique;
+    background-color: rgba(226, 224, 221, 0.705);
+}
+
+footer a:visited
+{
+    color: rgb(161, 76, 241);
+}
+
+footer a:hover
+{
+    color: rgb(255, 40, 191);
+    /*zoom: 1.1;*/
+    display: block;
+    transform: scale(1.1);
+    transform-origin: left;
+    transition: transform 0.2s, color 0.2s;
+}

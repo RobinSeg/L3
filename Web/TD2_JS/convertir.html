@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Convertisseur de devises</title>
+  <link rel="stylesheet" href="styles/styleConvertir.css"/>
+</head>
+
+<body>
+  
+<table>
+  <tr>
+    <th colspan="3">Convertisseur Euro ⇔ Dollar ⇔ Australien</th>
+  </tr>
+  <tr>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" alt="Euro"></td>
+    <td>Euro (€)</td>
+    <td><input id="euro" type="number" value="1"></td>
+  </tr>
+  <tr>
+    <td><img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="USD"></td>
+    <td>Dollar US ($)</td>
+    <td><input id="usd" type="number" value="0"></td>
+  </tr>
+  <tr>
+    <td><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/Flag_of_Australia.svg" alt="AUD"></td>
+    <td>Dollar Australien (AU$)</td>
+    <td><input id="aud" type="number" value="0"></td>
+  </tr>
+</table>
+
+<!-- Mettre en commentaire la balise bouton pour la 2e version (le bouton debient obsolète) -->
+<button id="convertir">Convertir</button>
+
+<!-- Mettre "script/convertirV2.js" pour la V2 -->
+<script src="script/convertir.js"></script>
+
+</body>
+</html>
