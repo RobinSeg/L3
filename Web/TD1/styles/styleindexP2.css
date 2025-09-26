@@ -306,3 +306,18 @@ footer
 }
 
 
+.bubble {
+  width: var(--bubble-size, 24px);
+  height: var(--bubble-size, 24px);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+* {
+  cursor: none;
+}
