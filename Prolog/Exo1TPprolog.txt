@@ -1,0 +1,62 @@
+% --- Exercice 1 ---
+
+% Couples
+couple(actifs).
+couple(lyceens).
+couple(retraites).
+couple(etudiants).
+
+% Destinations
+dest(espagne).
+dest(australie).
+dest(bali).
+dest(autre).
+
+% Durées
+duree(deux_semaines).
+duree(un_mois).
+duree(deux_mois).
+duree(non_definie).
+
+% Budgets
+budget(petit).
+budget(large).
+budget(confortable).
+budget(inexistant).
+
+% Vérification tableau
+tableau1(TV) :-
+    TV = [ 
+        d(actifs, DestA, DurA, BudA),
+        d(lyceens, DestL, DurL, BudL),
+        d(retraites, DestR, DurR, BudR),
+        d(etudiants, DestE, DurE, BudE)
+    ],
+
+    % Assignation des valeurs
+    DestA = bali, BudA = confortable, DurA = un_mois,
+    DestL = espagne, DurL = deux_semaines, BudL = petit,
+    DestR = australie, DurR = deux_mois, BudR = large,
+    DestE = autre, DurE = non_definie, BudE = inexistant,
+
+    % Vérification des faits
+    maplist(dest_ok, [DestA,DestL,DestR,DestE]),
+    maplist(duree_ok, [DurA,DurL,DurR,DurE]),
+    maplist(budget_ok, [BudA,BudL,BudR,BudE]),
+
+    % Toutes les valeurs différentes
+    all_different([DestA,DestL,DestR,DestE]),
+    all_different([DurA,DurL,DurR,DurE]),
+    all_different([BudA,BudL,BudR,BudE]).
+
+% Prédicats de vérification
+dest_ok(X) :- dest(X).
+duree_ok(X) :- duree(X).
+budget_ok(X) :- budget(X).
+
+% Vérifie que tous les éléments d'une liste sont différents
+all_different([]).
+all_different([X|Xs]) :- \+ memberchk(X, Xs), all_different(Xs).
+
+
+?-tableau1(TV).
