@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cpt de Clics</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <h2>Compteur de clics</h2>
+    <button @click="incrementer">Cliquez-moi</button>
+    <p>Nombre total de clics : {{ compteur }}</p>
+  
+  <hr>
+
+  <h2>Editeur de Texte en temps réel</h2>
+  <textarea v-model="texteSaisi" placeholder="Écris ici..."></textarea>
+  <p>{{ texteBase }}{{ texteSaisi }}</p>
+
+  <hr>
+
+  </div>
+
+<!---->
+  <hr>
+
+  <h2>Editeur de Texte en temps réel</h2>
+  <textarea id="app2" placeholder="Ecrit ici..."></textarea>
+  <p id="prg1">Texte1 : </p>
+
+
+<script src="script/script1.js"></script>
+</body>
+
+</html>
