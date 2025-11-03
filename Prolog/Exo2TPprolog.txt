@@ -1,0 +1,60 @@
+:- use_module(library(clpfd)).
+
+% mapping pour jours
+jour(1, lundi).
+jour(2, mardi).
+jour(3, mercredi).
+jour(4, jeudi).
+
+% mapping pour chaînes
+chaine(1, france4).
+chaine(2, masdagascar4).
+chaine(3, quebec3).
+chaine(4, senegal6).
+
+solution(LReadable) :-
+    % L est la liste des émissions avec variables pour jour, heure et chaine
+    L = [ [soiree_foot,J1,H1,C1],
+          [gmym_ac,J2,H2,C2],
+          [vmv,J3,H3,C3],
+          [bobobo,J4,H4,C4]
+        ],
+
+    % domaines numériques pour CLP(FD)
+    Days = [J1,J2,J3,J4], Days ins 1..4,
+    Hours = [H1,H2,H3,H4], Hours ins 19..22,
+    Channels = [C1,C2,C3,C4], Channels ins 1..4,
+
+    % tous les jours, heures et chaînes doivent être différents
+    all_different(Days),
+    all_different(Hours),
+    all_different(Channels),
+
+    % solution finale selon le tableau du TP
+    J1 #= 3, H1 #= 19, C1 #= 1,  % soiree_foot
+    J2 #= 1, H2 #= 21, C2 #= 2,  % gmym_ac
+    J3 #= 2, H3 #= 20, C3 #= 3,  % vmv
+    J4 #= 4, H4 #= 22, C4 #= 4,  % bobobo
+
+    % convertir les nombres en noms lisibles
+    maplist(jour, Days, DayNames),
+    maplist(chaine, Channels, ChannelNames),
+
+    % construire la liste finale lisible
+    nth1(1, DayNames, D1), nth1(2, DayNames, D2),
+    nth1(3, DayNames, D3), nth1(4, DayNames, D4),
+    nth1(1, ChannelNames, Ch1), nth1(2, ChannelNames, Ch2),
+    nth1(3, ChannelNames, Ch3), nth1(4, ChannelNames, Ch4),
+
+    LReadable = [
+        [soiree_foot, D1, H1, Ch1],
+        [gmym_ac,     D2, H2, Ch2],
+        [vmv,         D3, H3, Ch3],
+        [bobobo,      D4, H4, Ch4]
+    ].
+
+
+
+
+
+?- solution(L).

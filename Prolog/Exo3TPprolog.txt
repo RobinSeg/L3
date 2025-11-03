@@ -1,0 +1,117 @@
+% -------------------------------
+% 1️⃣ Créer une matrice N x N remplie de 0
+% -------------------------------
+creer_magique(N, L) :-
+    length(L, N),
+    maplist(creer_ligne(N), L).
+
+creer_ligne(N, L) :-
+    length(L, N),
+    maplist(=(0), L).
+
+% -------------------------------
+% 2️⃣ Afficher une matrice
+% -------------------------------
+ecrire([]).
+ecrire([Ligne|Reste]) :-
+    write(Ligne), nl,
+    ecrire(Reste).
+
+% -------------------------------
+% 3️⃣ Remplacer un élément dans une liste
+% -------------------------------
+placer(X, 1, [_|T], [X|T]).
+placer(X, R, [H|T], [H|TR]) :-
+    R > 1,
+    R1 is R - 1,
+    placer(X, R1, T, TR).
+
+% -------------------------------
+% 4️⃣ Remplacer un élément dans la matrice
+% -------------------------------
+substituer(P, X, Y, L, LR) :-
+    nth1(Y, L, Ligne),
+    placer(P, X, Ligne, NouvelleLigne),
+    placer(NouvelleLigne, Y, L, LR).
+
+% -------------------------------
+% 5️⃣ Calculer la position suivante (règle de Bachet)
+% -------------------------------
+succ(E, N, X, Y, NewX, NewY, L) :-
+    % Déplacement "toroïdal" : droite et haut
+    TempX is X + 1,
+    TempY is Y + 1,
+    (TempX > N -> NX = 1 ; NX = TempX),
+    (TempY > N -> NY = 1 ; NY = TempY),
+    nth1(NY, L, Ligne),
+    nth1(NX, Ligne, V),
+    (V =:= 0 ->
+        NewX = NX,
+        NewY = NY
+    ;
+        % case occupée : descendre de 2 lignes à la même colonne
+        NY1 is Y + 2,
+        (NY1 > N -> NewY is NY1 - N ; NewY = NY1),
+        NewX = X
+    ).
+
+% -------------------------------
+% 6️⃣ Placer tous les nombres
+% -------------------------------
+% condition d'arrêt : si E > N*N
+position(N, L, _, _, E, L) :- 
+    E > N*N, !.
+
+position(N, L, X, Y, E, FinalL) :-
+    E =< N*N,
+    substituer(E, X, Y, L, L1),
+    succ(E, N, X, Y, NX, NY, L1),
+    E1 is E + 1,
+    position(N, L1, NX, NY, E1, FinalL).
+
+% -------------------------------
+% 7️⃣ Prédicat principal
+% -------------------------------
+magik(P) :-
+    N is 2*P + 1,
+    creer_magique(N, L),
+    StartX is (N + 1) // 2, % colonne du milieu
+    StartY is 1,            % ligne du bas
+    position(N, L, StartX, StartY, 1, FinalL),
+    ecrire(FinalL).
+
+
+
+
+?- magik(1).
+
+% --- 9 --- %
+
+?- time(magik(1)).
+
+[8, 1, 6]
+[4, 9, 2]
+[3, 5, 7]
+4,591 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 5716057 Lips)
+1true
+
+Pour un carré magique d’ordre impair 
+𝑁
+=
+2
+𝑃
++
+1
+N=2P+1 :
+
+Il existe exactement 1 carré magique “normal” unique (sans rotation ou symétrie).
+
+Si on inclut les rotations et les symétries, il y a plusieurs variantes (mais généralement l’exercice ne demande que le carré principal).
+
+Donc, pour chaque P donné, le nombre de solutions normales est 1.
+
+
+
+
+
+
