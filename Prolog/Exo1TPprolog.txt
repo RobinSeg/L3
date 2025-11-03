@@ -59,4 +59,20 @@ all_different([]).
 all_different([X|Xs]) :- \+ memberchk(X, Xs), all_different(Xs).
 
 
-?-tableau1(TV).
+% --- Affichage clair ---
+afficher([]).
+afficher([d(C, D, Du, B) | Reste]) :-
+    format('~w partent à ~w pour ~w avec un budget ~w.~n', [C, D, Du, B]),
+    afficher(Reste).
+
+% --- Solution principale ---
+solution :-
+    tableau1(TV),
+    afficher(TV).
+
+
+?- solution.
+
+
+
+
